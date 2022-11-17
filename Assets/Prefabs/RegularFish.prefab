@@ -126,5 +126,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishWalkArea: {fileID: 2435327581908484176, guid: 1fac2d2c89420d2469bafe3859c777fd, type: 3}
   fishGameObject: {fileID: 4467534354531129695}
-  runAwayRadius: 2
+  runAwayRadius: -1
   playerGameObject: {fileID: 5317202330711504929, guid: d72fcf7b47c08a047870b2999e636d2f, type: 3}

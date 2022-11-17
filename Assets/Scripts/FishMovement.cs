@@ -18,7 +18,7 @@ public class FishMovement : MonoBehaviour
     private Vector3 fishMoveDirection;
     
     // Fish run away radius
-    [SerializeField] private float runAwayRadius;
+    //[SerializeField] private float runAwayRadius;
     
     
     // fish variable bi tane sart
@@ -52,9 +52,7 @@ public class FishMovement : MonoBehaviour
     // Wander around
     public void WanderAround()
     {
-        if (fishGameObject.CompareTag("Pick"))
-        {
-            distanceBetweenFishAndTargetPosition = Vector3.Distance(targetPosition, transform.position);
+        distanceBetweenFishAndTargetPosition = Vector3.Distance(targetPosition, transform.position);
             fishMoveDirection = (targetPosition - transform.position);
             fishMoveDirection.y = 0;
             fishMoveDirection.Normalize();
@@ -62,41 +60,6 @@ public class FishMovement : MonoBehaviour
             {
                 targetPosition = ChangeTargetPosition();
             }
-
             transform.Translate(fishMoveDirection * fish.GetFishSpeed() * Time.deltaTime);
-            //transform.DOMove(fishMoveDirection * fish.GetFishSpeed() * Time.deltaTime, 2);
-        }
-        return;
     }
-    /*
-    public void RunAwayFromPlayer()
-    {
-        distanceBetweenFishAndTargetPosition = Vector3.Distance(playerGameObject.transform.position, transform.position);
-        fishMoveDirection = (playerGameObject.transform.position - transform.position).normalized;
-        fishMoveDirection.y = 0f;
-        if (distanceBetweenFishAndTargetPosition <= runAwayRadius && fish.GetDoesFishRunAway())
-        {
-            Debug.Log("Kacmasi lazim");
-            transform.Translate(transform.position += -fishMoveDirection * (fish.GetFishSpeed() * Time.deltaTime * 5));    
-            
-        }
-        else
-        {
-            WanderAround();
-        }
-        
-    }
-    */
-
-    /*
-    public void RunAwayFromPlayer()
-    {
-        if (fish.GetDoesFishRunAway())
-        {
-            distanceBetweenFishAndTargetPosition = Vector3.Distance(playerGameObject.transform.position, transform.position);
-            fishMoveDirection = (playerGameObject.transform.position - transform.position).normalized;
-            fishGameObject.transform.DOMove(fishGameObject.transform.position += -fishMoveDirection * fish.GetFishSpeed(),2);
-        }
-    }
-    */
 }

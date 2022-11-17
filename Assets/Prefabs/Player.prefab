@@ -127,9 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7515f30be15136846910cf471962c146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timePassingUntilWeCatchAFish: 1
+  timePassingUntilWeCatchAFish: 2
   text: {fileID: 0}
-  timePassingUntilWeDestroyAFish: 1
+  timePassingUntilWeDestroyAFish: 2
   fishList: []
 --- !u!54 &5317202330411470410
 Rigidbody:
@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5317202330711504928}
   - component: {fileID: 5317202330711504923}
   - component: {fileID: 8870160430338894653}
+  - component: {fileID: 8848459295213395843}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -302,6 +303,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8848459295213395843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5317202330711504929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d7e5f79f19573469b50bc75800a2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5317202331370358739
 GameObject:
   m_ObjectHideFlags: 0

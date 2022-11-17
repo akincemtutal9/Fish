@@ -8,6 +8,7 @@ public class Fish : MonoBehaviour
     private float fishPrice;
     private float fishLevel;
     private bool doesFishRunAway;
+    private float fishMoveSpeed;
 
     //References
     private FishMovement fishMovement;
@@ -23,6 +24,7 @@ public class Fish : MonoBehaviour
         fishLevel = fishType.fishLevel;
         fishPrice = fishType.fishPrice;
         doesFishRunAway = fishType.doesFishRunAway;
+        fishMoveSpeed = fishType.fishMoveSpeed;
     }
 
     private void Update()
@@ -32,12 +34,12 @@ public class Fish : MonoBehaviour
 
     public int GetFishSpeed()
     {
-        return fishType.fishMoveSpeed;
+        return (int)fishMoveSpeed;
     }
 
     public bool GetDoesFishRunAway()
     {
-        return fishType.doesFishRunAway;
+        return doesFishRunAway;
     }
 }
 
