@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity;
     [SerializeField] private bool isGrounded;
     [SerializeField] private float jumpHeight;
+    [SerializeField] private DynamicJoystick dynamicJoystick;
     private CharacterController controller;
     
     private void Start()
@@ -21,10 +22,12 @@ public class PlayerMovement : MonoBehaviour
         {
             playerVelocity.y = 0f;
         }
-        float horizontalInput = SimpleInput.GetAxis("Horizontal");
-        float verticalInput = SimpleInput.GetAxis("Vertical");
+
+        float horizontalInput = dynamicJoystick.Horizontal;
+        float verticalInput = dynamicJoystick.Vertical;
 
         Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput);
+        //Vector3 moveDirection = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
         moveDirection.Normalize();
        
         controller.Move(moveDirection * speed * Time.deltaTime);

@@ -283,10 +283,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  rotateSpeed: 180
+  rotateSpeed: 360
   gravity: -9.8
   isGrounded: 0
   jumpHeight: 1
+  dynamicJoystick: {fileID: 0}
 --- !u!54 &8870160430338894653
 Rigidbody:
   m_ObjectHideFlags: 0
