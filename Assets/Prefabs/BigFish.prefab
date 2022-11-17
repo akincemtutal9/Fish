@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7196497760384603166}
   - component: {fileID: 7196497760384603167}
   - component: {fileID: 637230918880619155}
+  - component: {fileID: 6005099110819982413}
   m_Layer: 6
   m_Name: BigFish
   m_TagString: Pick
@@ -119,7 +120,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7196497760384603164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a46a049f1ad13b4f8d0801cd8a02fc0, type: 3}
   m_Name: 
@@ -128,3 +129,17 @@ MonoBehaviour:
   fishGameObject: {fileID: 7196497760384603164}
   runAwayRadius: 5
   playerGameObject: {fileID: 5317202330711504929, guid: d72fcf7b47c08a047870b2999e636d2f, type: 3}
+--- !u!114 &6005099110819982413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7196497760384603164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfc92cf4e4bc73489544b4786f6090d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaser: {fileID: 5317202330711504924, guid: d72fcf7b47c08a047870b2999e636d2f, type: 3}
+  displacementDist: 5

@@ -566,7 +566,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700340520}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5607b4b7b1d27dd4088db8f20764ddba, type: 3}
   m_Name: 
@@ -637,8 +637,8 @@ MonoBehaviour:
   prefab: {fileID: 4467534354531129695, guid: c92a6a694e073d34ea0450304c901e99, type: 3}
   notification: 3
   strategy: 0
-  preload: 10
-  capacity: 10
+  preload: 1
+  capacity: 1
   recycle: 0
   persist: 0
   stamp: 0
@@ -677,8 +677,8 @@ MonoBehaviour:
   prefab: {fileID: 7196497760384603164, guid: e1d11e6625c79ee4088dd5d72d6a6848, type: 3}
   notification: 3
   strategy: 0
-  preload: 5
-  capacity: 5
+  preload: 1
+  capacity: 1
   recycle: 0
   persist: 0
   stamp: 0

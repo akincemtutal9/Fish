@@ -9,7 +9,7 @@ public class FishMovement : MonoBehaviour
     private float verticalBoundries;
     private float xPosition;
     private float zPosition;
-        // To choose which fish will wander around
+    // To choose which fish will wander around
     [SerializeField] private GameObject fishGameObject;
     
     // For Wander around & running away from player
