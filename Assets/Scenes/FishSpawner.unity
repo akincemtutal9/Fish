@@ -422,6 +422,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5317202330711504924, guid: d72fcf7b47c08a047870b2999e636d2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317202330711504924, guid: d72fcf7b47c08a047870b2999e636d2f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
@@ -839,8 +843,8 @@ MonoBehaviour:
   prefab: {fileID: 4467534354531129695, guid: c92a6a694e073d34ea0450304c901e99, type: 3}
   notification: 3
   strategy: 0
-  preload: 10
-  capacity: 10
+  preload: 1
+  capacity: 1
   recycle: 0
   persist: 0
   stamp: 0
@@ -879,8 +883,8 @@ MonoBehaviour:
   prefab: {fileID: 7196497760384603164, guid: e1d11e6625c79ee4088dd5d72d6a6848, type: 3}
   notification: 3
   strategy: 0
-  preload: 3
-  capacity: 3
+  preload: 1
+  capacity: 1
   recycle: 0
   persist: 0
   stamp: 0

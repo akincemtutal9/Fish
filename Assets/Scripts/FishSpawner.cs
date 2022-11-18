@@ -22,14 +22,14 @@ public class FishSpawner : MonoBehaviour
    
     private void Start()
     {
-        horizontalSpawnBoundries = SpawnArea.transform.localScale.x;
-        verticalSpawnBoundries = SpawnArea.transform.localScale.z;
-        xPosition = SpawnArea.transform.position.x;
-        zPosition = SpawnArea.transform.position.z;
-        //SpawnArea.transform.localScale = new Vector3(horizontalSpawnBoundries,1,verticalSpawnBoundries);
+        var localScale = SpawnArea.transform.localScale;
+        horizontalSpawnBoundries = localScale.x;
+        verticalSpawnBoundries = localScale.z;
+        var position = SpawnArea.transform.position;
+        xPosition = position.x;
+        zPosition = position.z;
+        
     }
-    
-    
     private void Update()
     {
         RandomFishSpawner();
@@ -42,7 +42,7 @@ public class FishSpawner : MonoBehaviour
         {
             timer = 0;
             var randomSpawnPosition = new Vector3(Random.Range(-horizontalSpawnBoundries/2 + xPosition, horizontalSpawnBoundries/2 + xPosition), 0.5f, Random.Range(-verticalSpawnBoundries/2 + zPosition, verticalSpawnBoundries/2 + zPosition));
-            //Instantiate(fishObject, randomSpawnPosition, Quaternion.identity);
+            //Instantiate(spawnFishObjectPrefab, randomSpawnPosition, Quaternion.identity);
             var spawnFishObject = LeanPool.Spawn(spawnFishObjectPrefab, randomSpawnPosition, Quaternion.identity);
             fishCount++;
         }

@@ -8,7 +8,7 @@ public class Fish : MonoBehaviour
     private float fishPrice;
     private float fishLevel;
     private bool doesFishRunAway;
-    private float fishMoveSpeed;
+    private int fishMoveSpeed;
 
     //References
     private FishMovement fishMovement;
@@ -34,7 +34,7 @@ public class Fish : MonoBehaviour
 
     public int GetFishSpeed()
     {
-        return (int)fishMoveSpeed;
+        return fishMoveSpeed;
     }
 
     public bool GetDoesFishRunAway()

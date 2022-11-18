@@ -1,5 +1,5 @@
 using UnityEngine;
-using DG.Tweening;
+
 public class FishMovement : MonoBehaviour
 {
     //Fish Walk Area    
@@ -9,35 +9,26 @@ public class FishMovement : MonoBehaviour
     private float verticalBoundries;
     private float xPosition;
     private float zPosition;
-    // To choose which fish will wander around
-    [SerializeField] private GameObject fishGameObject;
     
-    // For Wander around & running away from player
+    // For Wander around 
     private Vector3 targetPosition;
     private float distanceBetweenFishAndTargetPosition;
     private Vector3 fishMoveDirection;
-    
-    // Fish run away radius
-    //[SerializeField] private float runAwayRadius;
-    
-    
-    // fish variable bi tane sart
+
     private Fish fish;
-    
-    // Our player 
-    [SerializeField] private GameObject playerGameObject;
-   
-    
+
     private void Start()
     {
         fish = GetComponent<Fish>();
         targetPosition = ChangeTargetPosition();
-        
 
-        horizontalBoundries = fishWalkArea.transform.localScale.x;
-        verticalBoundries = fishWalkArea.transform.localScale.z;
-        xPosition = fishWalkArea.transform.position.x;
-        zPosition = fishWalkArea.transform.position.z;
+
+        var localScale = fishWalkArea.transform.localScale;
+        horizontalBoundries = localScale.x;
+        verticalBoundries = localScale.z;
+        var position = fishWalkArea.transform.position;
+        xPosition = position.x;
+        zPosition = position.z;
 
     }
     private void Update(){
@@ -50,16 +41,17 @@ public class FishMovement : MonoBehaviour
         Random.Range(-verticalBoundries/2 + zPosition, verticalBoundries/2 + zPosition));
 
     // Wander around
-    public void WanderAround()
+    private void WanderAround()
     {
-        distanceBetweenFishAndTargetPosition = Vector3.Distance(targetPosition, transform.position);
-            fishMoveDirection = (targetPosition - transform.position);
+        var position = transform.position;
+        distanceBetweenFishAndTargetPosition = Vector3.Distance(targetPosition, position);
+            fishMoveDirection = (targetPosition - position);
             fishMoveDirection.y = 0;
             fishMoveDirection.Normalize();
             if (distanceBetweenFishAndTargetPosition <= 0.1f)
             {
                 targetPosition = ChangeTargetPosition();
             }
-            transform.Translate(fishMoveDirection * fish.GetFishSpeed() * Time.deltaTime);
+            transform.Translate(fishMoveDirection * (fish.GetFishSpeed() * Time.deltaTime));
     }
 }

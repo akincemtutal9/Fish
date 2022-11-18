@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FishRunAway : MonoBehaviour
 {
    
     private GameObject chaser = null;
-    private GameObject escapeFish = null;
-    
+
     private Vector3 chaserPosition;
     private Vector3 fishPosition;
-    private float distanceBetweenFishAndChaserPosition;
     private Vector3 fishMoveDirection;
-    [SerializeField] private float fishRunAwayRadius = 2;
     private FishMovement fishMovement;
     
     private Fish fish;
@@ -24,36 +19,46 @@ public class FishRunAway : MonoBehaviour
          fishMovement = GetComponent<FishMovement>();
          
          chaser = GameObject.Find("Player");
-         escapeFish = GameObject.Find("BigFish");
+       
+         
+         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-        RunAway();
-        
+        //fishMovement.GetComponent<FishMovement>().enabled = true;   
     }
 
-    public void RunAway()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("CollisionTag"))
+        {
+            fishMovement.GetComponent<FishMovement>().enabled = false;
+            Debug.Log("Movement gitti");
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("CollisionTag"))
+        {
             chaserPosition = chaser.transform.localPosition;
             fishPosition = transform.position;
-            distanceBetweenFishAndChaserPosition = Vector3.Distance(chaserPosition, fishPosition);
             fishMoveDirection = (chaserPosition - fishPosition).normalized;
             fishMoveDirection.y = 0;
-            if (fish.GetDoesFishRunAway() && distanceBetweenFishAndChaserPosition <= fishRunAwayRadius)
+            if (fish.GetDoesFishRunAway())
             {
-                escapeFish.GetComponent<FishMovement>().enabled = false;
                 transform.Translate(-(fishMoveDirection * fish.GetFishSpeed() * Time.deltaTime));
             }
-            else
-            {
-                escapeFish.GetComponent<FishMovement>().enabled = true;
-            }
+        }
     }
 
-    //private Vector3 ChangeChaserPosition() => chaser.position;
-   
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("CollisionTag"))
+        {
+            fishMovement.GetComponent<FishMovement>().enabled = true;
+            Debug.Log("Movement geri geldi");
+        }
+    }
 }

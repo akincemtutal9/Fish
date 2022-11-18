@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         //Vector3 moveDirection = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
         moveDirection.Normalize();
        
-        controller.Move(moveDirection * speed * Time.deltaTime);
+        controller.Move(moveDirection * (speed * Time.deltaTime));
         
         if(moveDirection != Vector3.zero)
         {
