@@ -41,5 +41,10 @@ public class Fish : MonoBehaviour
     {
         return doesFishRunAway;
     }
+
+    public int GetFishPrice()
+    {
+        return (int)fishPrice;
+    }
 }
 

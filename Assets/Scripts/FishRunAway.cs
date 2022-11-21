@@ -34,7 +34,7 @@ public class FishRunAway : MonoBehaviour
         if (other.CompareTag("CollisionTag"))
         {
             fishMovement.GetComponent<FishMovement>().enabled = false;
-            Debug.Log("Movement gitti");
+            //Debug.Log("Movement gitti");
         }
     }
 
@@ -58,7 +58,7 @@ public class FishRunAway : MonoBehaviour
         if (other.CompareTag("CollisionTag"))
         {
             fishMovement.GetComponent<FishMovement>().enabled = true;
-            Debug.Log("Movement geri geldi");
+            //Debug.Log("Movement geri geldi");
         }
     }
 }

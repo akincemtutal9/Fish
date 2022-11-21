@@ -7,55 +7,54 @@ using Lean.Pool;
 public class StackTrigger : MonoBehaviour
 {
     private float timer = 0;
-    private int capturedStacksCount = 0;
     [SerializeField] private float timePassingUntilWeCatchAFish;
-    private string stackObjectsTag = "Pick";
-    [SerializeField] private Text text;
-    [SerializeField] private float timePassingUntilWeDestroyAFish;
+    private string fishObjectsTag = "Pick";
+    
+    [SerializeField] private Text fishCountText; // fishCount
+    [SerializeField] private Text bagGold; // gold in bag 
 
+    private float moneyInTheBag = 0;
+    
+    [SerializeField] private float timePassingUntilWeDestroyAFish;
     [SerializeField] private List<GameObject> fishList;
 
-
+    private Fish fish;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(stackObjectsTag))
+        if(other.CompareTag(fishObjectsTag))
         {
-            Debug.Log("Enter");
-            //StackManager.instance.PickUp(other.gameObject, true, "Untagged");
-            
+            //Debug.Log("Enter");
+            fish = other.GetComponent<Fish>();
         }
     }
-
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag(stackObjectsTag))
+        if(other.CompareTag(fishObjectsTag))
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
             if (timer >= timePassingUntilWeCatchAFish)
             {
+                
                 StackManager.instance.PickUp(other.gameObject);
                 fishList.Add(other.gameObject);
-                capturedStacksCount++;
-                Debug.Log("Yakalanan balik " + GetCapturedStacksCount());
                 timer = 0f;
-                text.text = "Fish Count: " + capturedStacksCount;
+                moneyInTheBag += fish.GetFishPrice();
+                fishCountText.text = "Fish Count: " + fishList.Count;
+                bagGold.text = "Bag Gold: " + moneyInTheBag;
                 LeanPool.Despawn(other.gameObject, timePassingUntilWeDestroyAFish);
-                Debug.Log(other.gameObject.name);
+                
+                
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(stackObjectsTag))
+        if (other.CompareTag(fishObjectsTag))
         {
-            Debug.Log("Exited");
+            //Debug.Log("Exited");
             timer = 0;
         }
     }
-    public int GetCapturedStacksCount()
-    {
-        return capturedStacksCount;
-    }
+   
 }
