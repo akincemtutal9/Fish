@@ -1,0 +1,3 @@
+[submodule "Assets/submodule"]
+	path = Assets/submodule
+	url = https://github.com/akincemtutal9/submodule
