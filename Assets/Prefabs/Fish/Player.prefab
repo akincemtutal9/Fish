@@ -128,7 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timePassingUntilWeCatchAFish: 2
-  text: {fileID: 0}
+  bagGoldText: {fileID: 0}
+  fishCountDividedCapacityText: {fileID: 0}
+  capacityError: {fileID: 0}
+  bagCapacity: 3
   timePassingUntilWeDestroyAFish: 1
   fishList: []
 --- !u!54 &5317202330411470410
