@@ -184,6 +184,10 @@ PrefabInstance:
       value: RegularFish
       objectReference: {fileID: 0}
     - target: {fileID: 4467534354531129695, guid: c92a6a694e073d34ea0450304c901e99, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467534354531129695, guid: c92a6a694e073d34ea0450304c901e99, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -954,7 +958,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700340520}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5607b4b7b1d27dd4088db8f20764ddba, type: 3}
   m_Name: 
@@ -1382,7 +1386,7 @@ GameObject:
   - component: {fileID: 979040626}
   - component: {fileID: 979040625}
   - component: {fileID: 979040628}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1994,7 +1998,7 @@ GameObject:
   - component: {fileID: 1409836046}
   - component: {fileID: 1409836045}
   - component: {fileID: 1409836044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Elbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2264,7 +2268,7 @@ GameObject:
   - component: {fileID: 1802782824}
   - component: {fileID: 1802782822}
   - component: {fileID: 1802782828}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FishCollector
   m_TagString: CollisionTag
   m_Icon: {fileID: 0}
@@ -2445,6 +2449,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2005566583}
     m_Modifications:
+    - target: {fileID: 100000, guid: 419339190ddd8b14baeff0b4f9307a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 419339190ddd8b14baeff0b4f9307a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 419339190ddd8b14baeff0b4f9307a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 419339190ddd8b14baeff0b4f9307a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 419339190ddd8b14baeff0b4f9307a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 419339190ddd8b14baeff0b4f9307a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 419339190ddd8b14baeff0b4f9307a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 419339190ddd8b14baeff0b4f9307a55, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2638,7 +2670,7 @@ GameObject:
   - component: {fileID: 2005566579}
   - component: {fileID: 2005566584}
   - component: {fileID: 2005566585}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2756,11 +2788,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8353d3b3385122643984d1209e07b50d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  startWidth: 1
-  endWidth: 1
+  material: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  startWidth: 0.3
+  endWidth: 0.2
   startColor: {r: 1, g: 1, b: 1, a: 1}
-  endColor: {r: 1, g: 1, b: 1, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  LastHitGameObject: {fileID: 0}
   playerGameObject: {fileID: 2005566578}
 --- !u!114 &2005566585
 MonoBehaviour:
@@ -2783,7 +2819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2099376109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}

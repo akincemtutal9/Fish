@@ -67,11 +67,12 @@ public class DragLine : MonoBehaviour
         // Input(0) mousedaki sol
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         RaycastHit hitInfo;
-        if (Input.GetMouseButtonDown(0) && target.GetComponent<Target>() == true) // down bastın anlamında
+        
+        if (Input.GetMouseButtonDown(0)) // down bastın anlamında
         {
             if (Physics.Raycast(ray, out hitInfo, 550))
             {
-                LastHitGameObject = hitInfo.transform.gameObject;
+                LastHitGameObject = hitInfo.transform.gameObject;// Burdaki amac sadece karaktere basinca haraket ettirmek
                 Debug.Log(LastHitGameObject);
                 Vector3 startRenderPosition = hitInfo.point + Vector3.forward;
                 lineRenderer.SetPosition(0,
@@ -81,8 +82,7 @@ public class DragLine : MonoBehaviour
                 lineRenderer.enabled = true;
             }
         }
-
-        if (Input.GetMouseButton(0)) // basılı tutuyon anlamında
+        if (Input.GetMouseButton(0) && LastHitGameObject == playerGameObject) // basılı tutuyon anlamında
         {
             if (Physics.Raycast(ray, out hitInfo, 550))
             {
@@ -91,7 +91,7 @@ public class DragLine : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && LastHitGameObject == playerGameObject) //up bıraktın anlamında
+        if (Input.GetMouseButtonUp(0)) //up bıraktın anlamında
         {
             if (Physics.Raycast(ray, out hitInfo, 1000))
             {
