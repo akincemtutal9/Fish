@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a43d0bfdde3a84d8d001060c79f70a, type: 3}
   m_Name: RegularFish
   m_EditorClassIdentifier: 
-  fishMoveSpeed: 1
+  fishMoveSpeed: 7
   fishColor: {r: 1, g: 1, b: 1, a: 0}
   fishScale: {x: 1, y: 1, z: 1}
   fishPrice: 1
   fishLevel: 1
+  doesFishRunAway: 0

@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DragLine : MonoBehaviour
 {
@@ -13,6 +16,19 @@ public class DragLine : MonoBehaviour
 
     #endregion
 
+    #region SlowMo
+
+    private float slowMotion = 0.1f;
+    private float normalTime = 1.0f;
+    private bool doSlowMotion = false;
+
+    [SerializeField] private GameObject player;
+    [SerializeField] private Text TextUI;
+
+    #endregion
+    
+    
+    
     private LineRenderer lineRenderer;
     private Rigidbody rb;
     private Target target;
@@ -20,9 +36,9 @@ public class DragLine : MonoBehaviour
     public GameObject LastHitGameObject;
     
     [SerializeField] private GameObject playerGameObject;
-
-
-
+    public Vector3 inputForce;
+    public Vector3 to;
+    
     private void Awake()
     {
         playerGameObject = GameObject.Find("Player2");
@@ -30,6 +46,7 @@ public class DragLine : MonoBehaviour
 
     void Start()
     {
+        
         lineRenderer = GetComponent<LineRenderer>();
 
         if (lineRenderer == null) //bulmazsa koyuver
@@ -57,6 +74,27 @@ public class DragLine : MonoBehaviour
 
     void Update()
     {
+        if (rb.velocity.magnitude > 0)
+        {
+            if (doSlowMotion)
+            {
+                Time.timeScale = normalTime;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                TextUI.text = Time.timeScale.ToString("0");
+                doSlowMotion = false;
+            }
+        }
+        else
+        {
+            if (!doSlowMotion)
+            {
+                Time.timeScale = slowMotion;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                TextUI.text = Time.timeScale.ToString("0");
+                doSlowMotion = true;
+            }
+        }
+        
         LineMove();
     }
 
@@ -97,10 +135,10 @@ public class DragLine : MonoBehaviour
             {
                 lineRenderer.enabled = false;
                 // alttaki kodda updatelenmiş end positionuyla ilk pozisyondan ikinciyi çıkarıyoruz(Oyuna göre "eksi" ile çarparız)
-                Vector3 inputForce = lineRenderer.GetPosition(0) - lineRenderer.GetPosition(1);
+                inputForce = lineRenderer.GetPosition(0) - lineRenderer.GetPosition(1);
                 inputForce.y = 0f;
-                //Vector3 to = transform.position - inputForce;
-                //playerGameObject.transform.DOMove(to, 2);
+                //to = transform.position - inputForce;
+                //playerGameObject.transform.DOMove(to, 1);
                 rb.AddForce(-inputForce, ForceMode.Impulse);
             }
         }
