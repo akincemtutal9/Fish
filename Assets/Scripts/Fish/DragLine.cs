@@ -140,6 +140,7 @@ public class DragLine : MonoBehaviour
                 //to = transform.position - inputForce;
                 //playerGameObject.transform.DOMove(to, 1);
                 rb.AddForce(-inputForce, ForceMode.Impulse);
+                
             }
         }
     }
