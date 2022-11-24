@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4467534354531129693}
   - component: {fileID: 4467534354531129692}
   - component: {fileID: 5758876717412500602}
+  - component: {fileID: 2988626935315678234}
   m_Layer: 6
   m_Name: RegularFish
   m_TagString: Pick
@@ -32,7 +33,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.506, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7054667896541942286}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -125,6 +127,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishWalkArea: {fileID: 2435327581908484176, guid: 1fac2d2c89420d2469bafe3859c777fd, type: 3}
-  fishGameObject: {fileID: 4467534354531129695}
-  runAwayRadius: -1
-  playerGameObject: {fileID: 5317202330711504929, guid: d72fcf7b47c08a047870b2999e636d2f, type: 3}
+--- !u!114 &2988626935315678234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467534354531129695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475ec3fd998e78b43b27fdda48f55797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 8771920401073169197, guid: 5408670b3d10b2e41aa9f6ce3099005d, type: 3}
+  bulletPosition: {fileID: 7054667896541942286}
+--- !u!1 &9131084787265766053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7054667896541942286}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7054667896541942286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9131084787265766053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4467534354531129688}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

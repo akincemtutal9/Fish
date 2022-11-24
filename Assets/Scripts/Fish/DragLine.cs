@@ -108,7 +108,7 @@ public class DragLine : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0)) // down bastın anlamında
         {
-            if (Physics.Raycast(ray, out hitInfo, 550))
+            if (Physics.Raycast(ray, out hitInfo, 1000))
             {
                 LastHitGameObject = hitInfo.transform.gameObject;// Burdaki amac sadece karaktere basinca haraket ettirmek
                 Debug.Log(LastHitGameObject);
@@ -122,7 +122,7 @@ public class DragLine : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && LastHitGameObject == playerGameObject) // basılı tutuyon anlamında
         {
-            if (Physics.Raycast(ray, out hitInfo, 550))
+            if (Physics.Raycast(ray, out hitInfo, 1000))
             {
                 Vector3 endRenderPosition = hitInfo.point + Vector3.forward;
                 lineRenderer.SetPosition(1, endRenderPosition); // ikinci pozisyonu geldin burda updateledin 

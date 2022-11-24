@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a43d0bfdde3a84d8d001060c79f70a, type: 3}
   m_Name: BigFish
   m_EditorClassIdentifier: 
-  fishMoveSpeed: 2
+  fishMoveSpeed: 10
   fishColor: {r: 0.7169812, g: 0.010145942, b: 0.010145942, a: 0}
   fishScale: {x: 1, y: 1, z: 1}
   fishPrice: 2
