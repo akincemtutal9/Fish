@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DragLine : MonoBehaviour
+public class DragLineHands : MonoBehaviour
 {
     #region Fix Render Visual
 
@@ -30,37 +30,37 @@ public class DragLine : MonoBehaviour
     
     
     private LineRenderer lineRenderer;
-    private Rigidbody rb;
+    //private Rigidbody rb;
     private Target target;
     public LayerMask layerMask;
     public GameObject LastHitGameObject;
     
-    [SerializeField] private GameObject playerGameObject;
+    [SerializeField] private GameObject handGameObject;
+    [SerializeField] private GameObject mainPlayer;
     public Vector3 inputForce;
     public Vector3 to;
     private float timer;
     
     private void Awake()
     {
-        playerGameObject = GameObject.Find("Player2");
+        
     }
 
     void Start()
     {
         
         lineRenderer = GetComponent<LineRenderer>();
-
         if (lineRenderer == null) //bulmazsa koyuver
         {
             lineRenderer = gameObject.AddComponent<LineRenderer>();
         }
-
+        
         target = GetComponent<Target>();
-        rb = GetComponent<Rigidbody>();
-        if (rb == null) //bulmazsa koyuver
-        {
-            rb = gameObject.AddComponent<Rigidbody>();
-        }
+        //rb = GetComponent<Rigidbody>();
+        //if (rb == null) //bulmazsa koyuver
+        //{
+        //    rb = gameObject.AddComponent<Rigidbody>();
+        //}
 
         // Burdan aşağısı Scriptable olabilir ya da grafikçiler halleder.
         lineRenderer.enabled = false; // Oyun basi gozukmesin line
@@ -75,7 +75,7 @@ public class DragLine : MonoBehaviour
 
     void Update()
     {
-        /*if (rb.velocity.magnitude > 0)
+        /*if (mainPlayer.GetComponent<Rigidbody>().velocity.magnitude > 0)
         {
             if (doSlowMotion)
             {
@@ -121,7 +121,7 @@ public class DragLine : MonoBehaviour
                 lineRenderer.enabled = true;
             }
         }
-        if (Input.GetMouseButton(0) && LastHitGameObject == playerGameObject) // basılı tutuyon anlamında
+        if (Input.GetMouseButton(0) && LastHitGameObject == handGameObject) // basılı tutuyon anlamında
         {
             if (Physics.Raycast(ray, out hitInfo, 1000))
             {
@@ -139,9 +139,8 @@ public class DragLine : MonoBehaviour
                 inputForce = lineRenderer.GetPosition(0) - lineRenderer.GetPosition(1);
                 inputForce.y = 0f;
                 timer += Time.deltaTime;
-                //to = transform.position - inputForce;
-                //playerGameObject.transform.DOMove(to, 1);
-                rb.AddForce(-inputForce, ForceMode.Impulse);
+                to = transform.position - inputForce;
+                handGameObject.transform.DOMove(to, 1);
             }
         }
     }

@@ -1,17 +1,18 @@
 using UnityEngine;
 public class Target : MonoBehaviour
 {
-    private Renderer renderer;
+    
+    [SerializeField] private GameObject targetObject;
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        //renderer = GetComponent<Renderer>();
     }
     private void OnMouseEnter()
     {
-        renderer.material.color = Color.red;
+        targetObject.GetComponent<Renderer>().material.color = Color.red;
     }
     private void OnMouseExit()
     {
-        renderer.material.color = Color.white;
+        targetObject.GetComponent<Renderer>().material.color = Color.white;
     }
 }
